@@ -3,19 +3,19 @@ import { Construct } from 'constructs';
 import * as fs from 'fs';
 import path = require('path');
 
-interface ComformancePacksType {
+interface ConformancePacksType {
   name: string,
   templatePath: string
 }
 
 export interface CdkConstructSecuredResourcesConfigProps {
-  comformancePacks: ComformancePacksType[],
+  conformancePacks: ConformancePacksType[],
   configDeliveryS3Bucket: cdk.aws_s3.IBucket
 }
 
 export class CdkConstructSecuredResourcesConfig extends Construct {
 
-  public static rdsBestPracticesComformancePack:ComformancePacksType = {
+  public static rdsBestPracticesComformancePack:ConformancePacksType = {
     name: "SecuredRDSBestPractices",
     templatePath: "config-packs/rds.bestpractices.yaml"
   };    
@@ -23,18 +23,18 @@ export class CdkConstructSecuredResourcesConfig extends Construct {
   constructor(scope: Construct, id: string, props: CdkConstructSecuredResourcesConfigProps) {
     super(scope, id);
 
-    for(let comformancePack of props.comformancePacks){        
-      const conformancePack = new cdk.aws_config.CfnConformancePack(this, `CP-${comformancePack.name}`, {
-          conformancePackName: comformancePack.name,
+    for(let conformancePack of props.conformancePacks){        
+      const conformanceCreated = new cdk.aws_config.CfnConformancePack(this, `CP-${conformancePack.name}`, {
+          conformancePackName: conformancePack.name,
           deliveryS3Bucket: props.configDeliveryS3Bucket.bucketName,
-          deliveryS3KeyPrefix: comformancePack.name,
-          templateBody: fs.readFileSync(path.join(__dirname, '..', comformancePack.templatePath)).toString(),
+          deliveryS3KeyPrefix: conformancePack.name,
+          templateBody: fs.readFileSync(path.join(__dirname, '..', conformancePack.templatePath)).toString(),
           conformancePackInputParameters: [],      
       });
 
-      new cdk.CfnOutput(this, `CP-${comformancePack.name}-out`,{
-        description: `${comformancePack.name} name`,
-        value: conformancePack.conformancePackName
+      new cdk.CfnOutput(this, `CP-${conformancePack.name}-out`,{
+        description: `${conformancePack.name} name`,
+        value: conformanceCreated.conformancePackName
       });
     }
   }

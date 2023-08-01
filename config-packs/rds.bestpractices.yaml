@@ -8,19 +8,32 @@
 ###############################################################################################
 
 Resources:
-    RDSPublicProhibited:
-      Type: AWS::Config::ConfigRule
-      Properties:
-        ConfigRuleName: RDSInstanceNoPublicAccess
-        Description: >- 
-          Checks if the Amazon Relational Database Service (Amazon RDS) instances 
-          are not publicly accessible. 
-          The rule is NON_COMPLIANT if the publiclyAccessible field is true 
-          in the instance configuration item.        
-        Scope:
-          ComplianceResourceTypes:
-          - "AWS::RDS::Instance"
-        Source:
-          Owner: AWS
-          SourceIdentifier: RDS_INSTANCE_PUBLIC_ACCESS_CHECK
-        MaximumExecutionFrequency: Six_Hours
+  RDSPublicProhibited:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: RDSInstanceNoPublicAccess
+      Description: >- 
+        Checks if the Amazon Relational Database Service (Amazon RDS) instances 
+        are not publicly accessible. 
+        The rule is NON_COMPLIANT if the publiclyAccessible field is true 
+        in the instance configuration item.
+      Scope:
+        ComplianceResourceTypes:
+        - "AWS::RDS::Instance"
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_INSTANCE_PUBLIC_ACCESS_CHECK
+  RDSStorageEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: RDSInstanceStorageEncrypted
+      Description: >- 
+        Checks if storage encryption is enabled for your Amazon Relational Database Service 
+        (Amazon RDS) DB instances. 
+        The rule is NON_COMPLIANT if storage encryption is not enabled.
+      Scope:
+        ComplianceResourceTypes:
+        - "AWS::RDS::Instance"
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_STORAGE_ENCRYPTED
