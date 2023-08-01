@@ -1,0 +1,26 @@
+###############################################################################################
+#
+#   Conformance Pack:
+#     Operational Best Practices for AWS RDS
+#
+#    This pack contains AWS Config rules based on the best practice guidelines for AWS RDS.
+#
+###############################################################################################
+
+Resources:
+    RDSPublicProhibited:
+      Type: AWS::Config::ConfigRule
+      Properties:
+        ConfigRuleName: RDSInstanceNoPublicAccess
+        Description: >- 
+          Checks if the Amazon Relational Database Service (Amazon RDS) instances 
+          are not publicly accessible. 
+          The rule is NON_COMPLIANT if the publiclyAccessible field is true 
+          in the instance configuration item.        
+        Scope:
+          ComplianceResourceTypes:
+          - "AWS::RDS::Instance"
+        Source:
+          Owner: AWS
+          SourceIdentifier: RDS_INSTANCE_PUBLIC_ACCESS_CHECK
+        MaximumExecutionFrequency: Six_Hours
