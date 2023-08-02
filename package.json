@@ -28,6 +28,7 @@
     "awscdk",
     "cdk",
     "aws_config",
+    "compliance",
     "bestpractices"
   ],  
   "author": {

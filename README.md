@@ -29,7 +29,7 @@ const config = new CdkConstructSecuredResourcesConfig(this, `${stack_id}-config`
 ```
 
 ## References
-[1]: Network-level security best practices for Amazon RDS
+* [1]: Network-level security best practices for Amazon RDS
 https://aws.amazon.com/blogs/database/security-best-practices-for-amazon-rds-for-mysql-and-mariadb-instances/
-[2]: Amazon RDS Security
+* [2]: Amazon RDS Security
 https://aws.amazon.com/rds/features/security/#Encryption_of_Data_at_Rest
