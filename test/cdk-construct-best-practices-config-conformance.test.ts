@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import * as CdkConstructSecuredResourcesConfig from '../lib/index';
 
-test('Conformance Pack Created', () => {
+test('No Conformance Pack Created', () => {
   const app = new cdk.App();
   const stack = new cdk.Stack(app, "TestStack");
   const stackProps:CdkConstructSecuredResourcesConfig.CdkConstructSecuredResourcesConfigProps={

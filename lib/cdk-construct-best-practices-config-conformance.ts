@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as fs from 'fs';
-import path = require('path');
+import * as path from 'path';
 
 export interface ConformancePacksType {
   readonly name: string,
