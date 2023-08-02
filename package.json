@@ -1,6 +1,6 @@
 {
   "name": "@richkang/cdk-construct-best-practices-config-conformance",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/cdk-construct-best-practices-config-conformance.js",
   "types": "lib/cdk-construct-best-practices-config-conformance.d.ts",
   "scripts": {

@@ -4,9 +4,29 @@ A conformance pack is a collection of AWS Config rules and remediation actions t
 
 This CDK Construct included some Conformance Pack for best practices with Config managed rules.
 
-## RDS Best practices
+## Conformance Pack
 
-A good practices for securing RDS is to make sure the RDS is at the isolated subnet [1], and has encryption of data at rest [2].
+### RDS Best practices
+
+A good practices for securing RDS.
+
+#### RDS_INSTANCE_PUBLIC_ACCESS_CHECK
+Make sure the RDS is at the isolated subnet [1].
+
+#### RDS_STORAGE_ENCRYPTED
+RDS has encryption of data at rest [2].
+
+### Example usage
+
+Conformance Pack Name: `CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack`
+
+```
+const config = new CdkConstructSecuredResourcesConfig(this, `${stack_id}-config`,{
+    conformancePacks: [CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack],
+    configDeliveryS3Bucket: cdk.aws_s3.Bucket.fromBucketArn(this, `${stack_id}-config-s3`, s3BucketForConfig)  
+});
+
+```
 
 ## References
 [1]: Network-level security best practices for Amazon RDS
