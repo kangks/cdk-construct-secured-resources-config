@@ -1,12 +1,15 @@
-# Welcome to your CDK TypeScript Construct Library project
+# CDK Construct to create AWS Config Conformance Pack for common best practices
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`CdkConstructSecuredResourcesConfig`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a Region or across an organization in AWS Organizations.
 
-The construct defines an interface (`CdkConstructSecuredResourcesConfigProps`) to configure the visibility timeout of the queue.
+This CDK Construct included some Conformance Pack for best practices with Config managed rules.
 
-## Useful commands
+## RDS Best practices
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
+A good practices for securing RDS is to make sure the RDS is at the isolated subnet [1], and has encryption of data at rest [2].
+
+## References
+[1]: Network-level security best practices for Amazon RDS
+https://aws.amazon.com/blogs/database/security-best-practices-for-amazon-rds-for-mysql-and-mariadb-instances/
+[2]: Amazon RDS Security
+https://aws.amazon.com/rds/features/security/#Encryption_of_Data_at_Rest
