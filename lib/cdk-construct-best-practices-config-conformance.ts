@@ -3,24 +3,24 @@ import { Construct } from 'constructs';
 import * as fs from 'fs';
 import path = require('path');
 
-interface ConformancePacksType {
-  name: string,
-  templatePath: string
+export interface ConformancePacksType {
+  readonly name: string,
+  readonly templatePath: string
 }
 
-export interface CdkConstructSecuredResourcesConfigProps {
-  conformancePacks: ConformancePacksType[],
-  configDeliveryS3Bucket: cdk.aws_s3.IBucket
+export interface CdkConstructBestPracticesConfigConformanceProps {
+  readonly conformancePacks: ConformancePacksType[],
+  readonly configDeliveryS3Bucket: cdk.aws_s3.IBucket
 }
 
-export class CdkConstructSecuredResourcesConfig extends Construct {
+export class CdkConstructBestPracticesConfigConformance extends Construct {
 
   public static rdsBestPracticesComformancePack:ConformancePacksType = {
     name: "SecuredRDSBestPractices",
-    templatePath: "config-packs/rds.bestpractices.yaml"
+    templatePath: path.join(__dirname, '..', "config-packs/rds.bestpractices.yaml")
   };    
 
-  constructor(scope: Construct, id: string, props: CdkConstructSecuredResourcesConfigProps) {
+  constructor(scope: Construct, id: string, props: CdkConstructBestPracticesConfigConformanceProps) {
     super(scope, id);
 
     for(let conformancePack of props.conformancePacks){        
@@ -28,7 +28,7 @@ export class CdkConstructSecuredResourcesConfig extends Construct {
           conformancePackName: conformancePack.name,
           deliveryS3Bucket: props.configDeliveryS3Bucket.bucketName,
           deliveryS3KeyPrefix: conformancePack.name,
-          templateBody: fs.readFileSync(path.join(__dirname, '..', conformancePack.templatePath)).toString(),
+          templateBody: fs.readFileSync(conformancePack.templatePath).toString(),
           conformancePackInputParameters: [],      
       });
 
