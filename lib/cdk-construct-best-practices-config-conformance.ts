@@ -27,8 +27,6 @@ export class CdkConstructBestPracticesConfigConformance extends Construct {
   constructor(scope: Construct, id: string, props: CdkConstructBestPracticesConfigConformanceProps) {
     super(scope, id);
 
-    const recorderResources:string[] = [];
-
     for(let conformancePack of props.conformancePacks){        
       const conformanceCreated = new cdk.aws_config.CfnConformancePack(this, `CP-${conformancePack.name}`, {
           conformancePackName: conformancePack.name,
@@ -38,36 +36,10 @@ export class CdkConstructBestPracticesConfigConformance extends Construct {
           conformancePackInputParameters: [],      
       });
 
-      conformancePack.resourceTypes.forEach(
-        x=>recorderResources.concat(x.complianceResourceType)
-      );
-
       new cdk.CfnOutput(this, `CP-${conformancePack.name}-out`,{
         description: `${conformancePack.name} name`,
         value: conformanceCreated.conformancePackName
       });
     };
-
-    // createDeliveryIfNotExists();
-
-    // new cdk.aws_config.CfnDeliveryChannel(
-    //   this, `${id}-delivery`, <cdk.aws_config.CfnDeliveryChannelProps>{
-    //     s3BucketName: props.configDeliveryS3Bucket.bucketName
-    //   }
-    // )
-
-    // const recordingGroup = <cdk.aws_config.CfnConfigurationRecorder.RecordingGroupProperty>{
-    //   resourceTypes: recorderResources
-    // };
-
-    // new cdk.aws_config.CfnConfigurationRecorder(this,`${id}-config-recorder`,<cdk.aws_config.CfnConfigurationRecorderProps>{
-    //   recordingGroup: recordingGroup      
-    // });
   }
 }
-// function createDeliveryIfNotExists() {
-//   var configservice = new AWS.ConfigService();
-
-//   throw new Error('Function not implemented.');
-// }
-

@@ -8,10 +8,10 @@ This CDK Construct included some Conformance Pack for best practices with Config
 
 ### RDS Best practices
 
-A good practices for securing RDS.
+Subset of security best practices for Amazon RDS Conformance Packs. Full set of the rules can be found in [AWS Config github repository](https://github.com/awslabs/aws-config-rules/blob/master/aws-config-conformance-packs/Security-Best-Practices-for-RDS.yaml).
 
 #### RDS_INSTANCE_PUBLIC_ACCESS_CHECK
-Make sure the RDS is at the isolated subnet [1].
+Make sure the RDS is in the isolated subnet [1].
 
 #### RDS_STORAGE_ENCRYPTED
 RDS has encryption of data at rest [2].
