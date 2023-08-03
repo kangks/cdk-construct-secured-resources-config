@@ -3507,7 +3507,7 @@
   },
   "name": "@richkang/cdk-construct-best-practices-config-conformance",
   "readme": {
-    "markdown": "# CDK Construct to create AWS Config Conformance Pack for common best practices\n\nA conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a Region or across an organization in AWS Organizations.\n\nThis CDK Construct included some Conformance Pack for best practices with Config managed rules.\n\n## Conformance Pack\n\n### RDS Best practices\n\nA good practices for securing RDS.\n\n#### RDS_INSTANCE_PUBLIC_ACCESS_CHECK\nMake sure the RDS is at the isolated subnet [1].\n\n#### RDS_STORAGE_ENCRYPTED\nRDS has encryption of data at rest [2].\n\n### Example usage\n\nConformance Pack Name: `CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack`\n\n```\nconst config = new CdkConstructSecuredResourcesConfig(this, `${stack_id}-config`,{\n    conformancePacks: [CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack],\n    configDeliveryS3Bucket: cdk.aws_s3.Bucket.fromBucketArn(this, `${stack_id}-config-s3`, s3BucketForConfig)\n});\n\n```\n\n## References\n* [1]: Network-level security best practices for Amazon RDS\nhttps://aws.amazon.com/blogs/database/security-best-practices-for-amazon-rds-for-mysql-and-mariadb-instances/\n* [2]: Amazon RDS Security\nhttps://aws.amazon.com/rds/features/security/#Encryption_of_Data_at_Rest"
+    "markdown": "# CDK Construct to create AWS Config Conformance Pack for common best practices\n\nA conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a Region or across an organization in AWS Organizations.\n\nThis CDK Construct included some Conformance Pack for best practices with Config managed rules.\n\n## Conformance Pack\n\n### RDS Best practices\n\nSubset of security best practices for Amazon RDS Conformance Packs. Full set of the rules can be found in [AWS Config github repository](https://github.com/awslabs/aws-config-rules/blob/master/aws-config-conformance-packs/Security-Best-Practices-for-RDS.yaml).\n\n#### RDS_INSTANCE_PUBLIC_ACCESS_CHECK\nMake sure the RDS is in the isolated subnet [1].\n\n#### RDS_STORAGE_ENCRYPTED\nRDS has encryption of data at rest [2].\n\n### Example usage\n\nConformance Pack Name: `CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack`\n\n```\nconst config = new CdkConstructSecuredResourcesConfig(this, `${stack_id}-config`,{\n    conformancePacks: [CdkConstructSecuredResourcesConfig.rdsBestPracticesComformancePack],\n    configDeliveryS3Bucket: cdk.aws_s3.Bucket.fromBucketArn(this, `${stack_id}-config-s3`, s3BucketForConfig)\n});\n\n```\n\n## References\n* [1]: Network-level security best practices for Amazon RDS\nhttps://aws.amazon.com/blogs/database/security-best-practices-for-amazon-rds-for-mysql-and-mariadb-instances/\n* [2]: Amazon RDS Security\nhttps://aws.amazon.com/rds/features/security/#Encryption_of_Data_at_Rest"
   },
   "repository": {
     "type": "git",
@@ -3674,6 +3674,6 @@
       "symbolId": "lib/cdk-construct-best-practices-config-conformance:ConformancePacksType"
     }
   },
-  "version": "0.1.5",
-  "fingerprint": "DpFZRC6BOosoZ3UBK0quVPoeDiznKbv+XIfjaueGrQU="
+  "version": "0.1.6",
+  "fingerprint": "HLFwekfyDFlmG1vAkHrAT+uT9xjPM1HGt/ZM+R7UwXs="
 }
