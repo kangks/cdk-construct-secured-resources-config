@@ -3531,7 +3531,7 @@
       "initializer": {
         "locationInModule": {
           "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-          "line": 23
+          "line": 27
         },
         "parameters": [
           {
@@ -3557,14 +3557,14 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-        "line": 16
+        "line": 17
       },
       "name": "CdkConstructBestPracticesConfigConformance",
       "properties": [
         {
           "locationInModule": {
             "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-            "line": 18
+            "line": 19
           },
           "name": "rdsBestPracticesComformancePack",
           "static": true,
@@ -3582,7 +3582,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-        "line": 11
+        "line": 12
       },
       "name": "CdkConstructBestPracticesConfigConformanceProps",
       "properties": [
@@ -3591,7 +3591,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-            "line": 13
+            "line": 14
           },
           "name": "configDeliveryS3Bucket",
           "type": {
@@ -3603,7 +3603,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
-            "line": 12
+            "line": 13
           },
           "name": "conformancePacks",
           "type": {
@@ -3646,6 +3646,23 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
+            "line": 9
+          },
+          "name": "resourceTypes",
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "aws-cdk-lib.aws_config.ResourceType"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/cdk-construct-best-practices-config-conformance.ts",
             "line": 8
           },
           "name": "templatePath",
@@ -3657,6 +3674,6 @@
       "symbolId": "lib/cdk-construct-best-practices-config-conformance:ConformancePacksType"
     }
   },
-  "version": "0.1.4",
-  "fingerprint": "XVLKBVPFRoqz1NscQecvzQSHYVjp30EZ7/cWnuo0Jk4="
+  "version": "0.1.5",
+  "fingerprint": "DpFZRC6BOosoZ3UBK0quVPoeDiznKbv+XIfjaueGrQU="
 }

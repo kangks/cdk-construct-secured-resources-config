@@ -19,7 +19,7 @@ Resources:
         in the instance configuration item.
       Scope:
         ComplianceResourceTypes:
-        - "AWS::RDS::Instance"
+        - "AWS::RDS::DBInstance"
       Source:
         Owner: AWS
         SourceIdentifier: RDS_INSTANCE_PUBLIC_ACCESS_CHECK
@@ -33,7 +33,20 @@ Resources:
         The rule is NON_COMPLIANT if storage encryption is not enabled.
       Scope:
         ComplianceResourceTypes:
-        - "AWS::RDS::Instance"
+        - "AWS::RDS::DBInstance"
       Source:
         Owner: AWS
         SourceIdentifier: RDS_STORAGE_ENCRYPTED
+  RDSSnapshotEncrypted:
+    Type: AWS::Config::ConfigRule
+    Properties:
+      ConfigRuleName: RDSInstanceSnapshotEncrypted
+      Description: >- 
+        Checks if Amazon Relational Database Service (Amazon RDS) DB snapshots are encrypted. 
+        The rule is NON_COMPLIANT if the Amazon RDS DB snapshots are not encrypted.      
+      Scope:
+        ComplianceResourceTypes:
+        - "AWS::RDS::DBInstance"
+      Source:
+        Owner: AWS
+        SourceIdentifier: RDS_SNAPSHOT_ENCRYPTED
